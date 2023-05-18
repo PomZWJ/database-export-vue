@@ -13,7 +13,13 @@
         </div>
         <div style="width: 50%;display: flex;flex-direction: row-reverse;justify-items: center;align-items: center">
           <get-money></get-money>
+          <add-douyin></add-douyin>
           <add-wx></add-wx>
+          <div style="margin-left: 20px;">
+            <el-tooltip class="item" effect="dark" content="CSDN" placement="bottom">
+              <img onclick="window.open('https://blog.csdn.net/huanguta1178/article/details/83690318')" :src="csdnIconImg" style="width: 30px;height: 30px;cursor: pointer;">
+            </el-tooltip>
+          </div>
           <div style="margin-left: 20px;">
             <el-tooltip class="item" effect="dark" content="Gitee" placement="bottom">
               <img onclick="window.open('https://gitee.com/pomz/database-export')" :src="giteeIconImg" style="width: 30px;height: 30px;cursor: pointer;">
@@ -52,6 +58,7 @@ import logoImgPath from '../assets/logo.png'
 import giteeIconPath from '../assets/images/Gitee-icon.png'
 import githubIconPath from '../assets/images/Github-icon.png'
 import emailIconPath from '../assets/images/email-icon.png'
+import csdnIconPath from '../assets/images/csdn.png'
 
 
 import AddWx from "./add-wx.vue";
@@ -62,15 +69,17 @@ import Sqlserver from "./db/sqlserver.vue";
 import Postgresql from "./db/postgresql.vue";
 import Clickhouse from "./db/clickhouse.vue";
 import Sqlite from "./db/sqlite.vue";
+import AddDouyin from "./add-douyin.vue";
 export default {
   name: 'index',
-  components: {Sqlite, Clickhouse, Postgresql, Sqlserver, Oracle, Mysql, AddWx,GetMoney},
+  components: {AddDouyin, Sqlite, Clickhouse, Postgresql, Sqlserver, Oracle, Mysql, AddWx,GetMoney},
   data(){
     return{
       logoImg: logoImgPath,
       giteeIconImg: giteeIconPath,
       githubIconImg: githubIconPath,
       emailIconImg: emailIconPath,
+      csdnIconImg: csdnIconPath
     }
   },
   methods:{

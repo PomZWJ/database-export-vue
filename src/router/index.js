@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import index from '../page/index'
-import view from '../page/view'
+import htmlView from '../page/view'
 Vue.use(Router)
 
 export default new Router({
@@ -13,8 +13,8 @@ export default new Router({
     },
     {
       path: '/view',
-      name: 'view',
-      component: view
+      name: 'htmlView',
+      component: htmlView
     }
   ]
 })

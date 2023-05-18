@@ -32,7 +32,7 @@ export default {
       })
 
     },
-    generateFile(exportFileType){
+    generateFileOpera(exportFileType){
       this.loading = true;
       this.$set(this.data,'exportFileType',exportFileType)
       this.axios.get("/makeFile",{
@@ -55,6 +55,14 @@ export default {
         }
       });
     },
+    generateFile(exportFileType){
+      this.$refs[this.ref].validate(valid => {
+        if (valid) {
+          this.generateFileOpera(exportFileType);
+        }
+      })
+
+    },
     generateHtmlView(){
       this.$refs[this.ref].validate(valid => {
         if (valid) {
@@ -71,6 +79,11 @@ export default {
 
       } else {
 
+      }
+    },
+    loading(val){
+      if(val){
+        this.visible = false;
       }
     }
   }
