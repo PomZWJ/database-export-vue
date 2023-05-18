@@ -5,36 +5,36 @@
       width="700"
       trigger="click"
       v-model="visible">
-      <div style="margin: 30px 40px;">
-        <el-form :model="data" class="el-form-default" :validate-on-rule-change="false">
-          <el-form-item>
+      <div style="margin: 30px 40px;" v-loading="loading">
+        <el-form :model="data" :rules="Rules" :ref="ref" class="el-form-default" :validate-on-rule-change="false">
+          <el-form-item prop="ip">
             <el-input placeholder="127.0.0.1" v-model="data.ip">
               <template slot="prepend">IP地址</template>
             </el-input>
           </el-form-item>
-          <el-form-item>
+          <el-form-item prop="port">
             <el-input placeholder="3306" v-model="data.port">
               <template slot="prepend">端&nbsp;&nbsp;&nbsp;口</template>
             </el-input>
           </el-form-item>
-          <el-form-item>
+          <el-form-item prop="dbName">
             <el-input v-model="data.dbName">
               <template slot="prepend">数据库</template>
             </el-input>
           </el-form-item>
-          <el-form-item>
+          <el-form-item prop="userName">
             <el-input placeholder="root" v-model="data.userName">
               <template slot="prepend">用户名</template>
             </el-input>
           </el-form-item>
-          <el-form-item>
+          <el-form-item prop="password">
             <el-input placeholder="" v-model="data.password">
               <template slot="prepend">密&nbsp;&nbsp;&nbsp;码</template>
             </el-input>
           </el-form-item>
         </el-form>
         <el-row style="justify-content: center;align-items: center;display: flex">
-          <el-popover placement="top" trigger="click" width="340">
+          <el-popover placement="top" trigger="hover" width="340">
             <el-row>
               <el-button class="el-icon-download" type="primary" plain @click="generateFile('word')">word</el-button>
               <el-button class="el-icon-download" type="primary" plain @click="generateFile('excel')">excel</el-button>
@@ -59,46 +59,40 @@
 </template>
 <script>
 import mysqlIconPath from '../../assets/images/mysql-icon-click.png'
+import commonMixin from "./common-mixin";
 export default {
   name: 'mysql',
+  mixins: [commonMixin],
   data(){
     return{
+      ref: 'form',
       iconImg: mysqlIconPath,
       text: 'MySQL',
       data: {
         'dbKind':'mysql'
       },
-      visible: false
+      Rules: {
+        ip: [
+          {required: true, message: '不能为空'}
+        ],
+        port: [
+          {required: true, message: '不能为空'}
+        ],
+        dbName: [
+          {required: true, message: '不能为空'}
+        ],
+        userName: [
+          {required: true, message: '不能为空'}
+        ],
+        password: [
+          {required: true, message: '不能为空'}
+        ]
+      },
+
     }
   },
   methods:{
-    generateFile(){
 
-    },
-    generateHtmlView(){
-      debugger
-      if (!this.data.ip) {
-        this.$message.error('IP不能为空');
-        return;
-      }else if (!this.data.port) {
-        this.$message.error('端口不能为空');
-        return;
-      }else if (!this.data.dbName) {
-        this.$message.error('实例/数据库名称不能为空');
-        return;
-      }else if (!this.data.userName) {
-        this.$message.error('用户名不能为空');
-        return;
-      }else if (!this.data.password) {
-        this.$message.error('密码不能为空');
-        return;
-      }
-      let path = '/view' // 路由
-      let {href} = this.$router.resolve({path, query: {'base64Params': btoa(JSON.stringify(this.data))}})
-      window.open(href, '_blank')
-
-
-    }
   }
 }
 </script>

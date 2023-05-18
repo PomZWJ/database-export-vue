@@ -13,12 +13,12 @@
             </el-input>
           </el-form-item>
           <el-form-item prop="port">
-            <el-input placeholder="1521" v-model="data.port">
+            <el-input placeholder="9000" v-model="data.port">
               <template slot="prepend">端&nbsp;&nbsp;&nbsp;口</template>
             </el-input>
           </el-form-item>
           <el-form-item prop="dbName">
-            <el-input placeholder="orcl" v-model="data.dbName">
+            <el-input v-model="data.dbName">
               <template slot="prepend">数据库</template>
             </el-input>
           </el-form-item>
@@ -58,18 +58,18 @@
   </el-col>
 </template>
 <script>
-import oracleIconPath from '../../assets/images/oracle-icon-click.png'
+import clickhouseIconPath from '../../assets/images/clickhouse-icon-click.png'
 import commonMixin from "./common-mixin";
 export default {
-  name: 'oracle',
+  name: 'clickhouse',
   mixins: [commonMixin],
   data(){
     return{
       ref: 'form',
-      iconImg: oracleIconPath,
-      text: 'ORACLE',
+      iconImg: clickhouseIconPath,
+      text: 'ClickHouse',
       data: {
-        'dbKind':'oracle'
+        'dbKind':'clickhouse'
       },
       Rules: {
         ip: [

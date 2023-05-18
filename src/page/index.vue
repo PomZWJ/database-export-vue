@@ -38,6 +38,9 @@
           <mysql></mysql>
           <oracle></oracle>
           <sqlserver></sqlserver>
+          <postgresql></postgresql>
+          <clickhouse></clickhouse>
+          <sqlite></sqlite>
         </el-row>
       </el-main>
     </el-container>
@@ -56,9 +59,12 @@ import GetMoney from "./get-money.vue";
 import Mysql from "./db/mysql.vue";
 import Oracle from "./db/oracle.vue";
 import Sqlserver from "./db/sqlserver.vue";
+import Postgresql from "./db/postgresql.vue";
+import Clickhouse from "./db/clickhouse.vue";
+import Sqlite from "./db/sqlite.vue";
 export default {
   name: 'index',
-  components: {Sqlserver, Oracle, Mysql, AddWx,GetMoney},
+  components: {Sqlite, Clickhouse, Postgresql, Sqlserver, Oracle, Mysql, AddWx,GetMoney},
   data(){
     return{
       logoImg: logoImgPath,

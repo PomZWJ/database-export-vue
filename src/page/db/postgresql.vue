@@ -13,12 +13,12 @@
             </el-input>
           </el-form-item>
           <el-form-item prop="port">
-            <el-input placeholder="1521" v-model="data.port">
+            <el-input placeholder="5432" v-model="data.port">
               <template slot="prepend">端&nbsp;&nbsp;&nbsp;口</template>
             </el-input>
           </el-form-item>
           <el-form-item prop="dbName">
-            <el-input placeholder="orcl" v-model="data.dbName">
+            <el-input v-model="data.dbName">
               <template slot="prepend">数据库</template>
             </el-input>
           </el-form-item>
@@ -58,18 +58,18 @@
   </el-col>
 </template>
 <script>
-import oracleIconPath from '../../assets/images/oracle-icon-click.png'
+import postgresqlIconPath from '../../assets/images/postgresql-icon-click.png'
 import commonMixin from "./common-mixin";
 export default {
-  name: 'oracle',
+  name: 'postgresql',
   mixins: [commonMixin],
   data(){
     return{
       ref: 'form',
-      iconImg: oracleIconPath,
-      text: 'ORACLE',
+      iconImg: postgresqlIconPath,
+      text: 'PostgreSQL',
       data: {
-        'dbKind':'oracle'
+        'dbKind':'postgresql'
       },
       Rules: {
         ip: [
