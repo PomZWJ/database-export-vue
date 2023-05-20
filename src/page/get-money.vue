@@ -1,11 +1,11 @@
 <template>
   <el-popover
     placement="bottom"
-    width="310"
+    width="300"
     trigger="hover">
     <div style="display: flex;flex-direction: row">
       <div>
-        <img :src="wxPayImg" style="width: 300px;height: 400px;cursor: pointer;">
+        <img :src="wxPayImg" style="width: 300px;height: 300px;cursor: pointer;">
       </div>
     </div>
     <div style="margin-left: 20px;" slot="reference">
