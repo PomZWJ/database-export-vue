@@ -47,6 +47,8 @@
           <postgresql></postgresql>
           <clickhouse></clickhouse>
           <sqlite></sqlite>
+          <db2></db2>
+          <dm></dm>
         </el-row>
       </el-main>
     </el-container>
@@ -70,9 +72,11 @@ import Postgresql from "./db/postgresql.vue";
 import Clickhouse from "./db/clickhouse.vue";
 import Sqlite from "./db/sqlite.vue";
 import AddDouyin from "./add-douyin.vue";
+import Db2 from "./db/db2.vue";
+import Dm from "./db/dm.vue";
 export default {
   name: 'index',
-  components: {AddDouyin, Sqlite, Clickhouse, Postgresql, Sqlserver, Oracle, Mysql, AddWx,GetMoney},
+  components: {Dm, Db2, AddDouyin, Sqlite, Clickhouse, Postgresql, Sqlserver, Oracle, Mysql, AddWx,GetMoney},
   data(){
     return{
       logoImg: logoImgPath,
