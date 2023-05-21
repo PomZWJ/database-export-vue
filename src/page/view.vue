@@ -28,7 +28,7 @@
           <el-main style="padding: 0;height: calc(100vh - 140px);">
             <el-menu style="border: none">
               <el-menu-item @click.native="selectItem(item.value)" :title="item.value" style="text-align: left;overflow: hidden;text-overflow: ellipsis;color: black;" v-for="(item,index) in selectOptions" :key="index">
-                <img :src="tableIconImg" style="width: 15px;height: 15px;margin-right: 5px;"/>{{ item.label }}
+                <img :src="tableIconImg" style="width: 15px;height: 15px;margin-right: 5px;"/>{{index+1}}.{{ item.label }}
               </el-menu-item>
             </el-menu>
           </el-main>
@@ -38,7 +38,7 @@
         <div :ref="item.tableName" v-for="(item,index) in tableData.tableDetailInfo" :key="index" style="margin-top: 50px;">
           <div style="display: flex;justify-content: left;align-items: center">
             <img :src="tableIconImg" style="width: 25px;height: 25px;margin-right: 10px;"/>
-            <h1 style="font-size: 30px;">{{ item.tableName }}({{ item.tableComments }})</h1>
+            <h1 style="font-size: 30px;">{{index+1}}.{{ item.tableName }}({{ item.tableComments }})</h1>
           </div>
           <el-table :data="item.tabsColumn" border style="width: 100%"
                     :header-cell-style="{

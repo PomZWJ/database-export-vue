@@ -18,7 +18,7 @@
             </el-input>
           </el-form-item>
           <el-form-item prop="dbName">
-            <el-input placeholder="orcl" v-model="data.dbName">
+            <el-input v-model="data.dbName">
               <template slot="prepend">数据库</template>
             </el-input>
           </el-form-item>
@@ -41,6 +41,7 @@
               <el-dropdown-item @click.native="generateFile('excel')">excel</el-dropdown-item>
               <el-dropdown-item @click.native="generateFile('markdown')">markdown</el-dropdown-item>
               <el-dropdown-item @click.native="generateFile('pdf')">pdf</el-dropdown-item>
+              <el-dropdown-item @click.native="generateFile('html')">html</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
           <el-button type="primary" style="margin-left: 20px;" class="el-icon-view" @click="generateHtmlView()">HTML预览</el-button>

@@ -21,6 +21,7 @@
             <el-dropdown-item @click.native="generateFile('excel')">excel</el-dropdown-item>
             <el-dropdown-item @click.native="generateFile('markdown')">markdown</el-dropdown-item>
             <el-dropdown-item @click.native="generateFile('pdf')">pdf</el-dropdown-item>
+            <el-dropdown-item @click.native="generateFile('html')">html</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
           <el-button type="primary" style="margin-left: 20px;" class="el-icon-view" @click="generateHtmlView()">HTML预览</el-button>
