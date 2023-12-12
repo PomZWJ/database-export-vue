@@ -34,21 +34,17 @@
           </el-form-item>
         </el-form>
         <el-row style="justify-content: center;align-items: center;display: flex">
-          <el-dropdown placement="top">
-            <el-button type="primary" class="el-icon-download">下载文件</el-button>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item @click.native="generateFile('word')">word</el-dropdown-item>
-              <el-dropdown-item @click.native="generateFile('excel')">excel</el-dropdown-item>
-              <el-dropdown-item @click.native="generateFile('markdown')">markdown</el-dropdown-item>
-              <el-dropdown-item @click.native="generateFile('pdf')">pdf</el-dropdown-item>
-              <el-dropdown-item @click.native="generateFile('html')">html</el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
-          <el-button type="primary" style="margin-left: 20px;" class="el-icon-view" @click="generateHtmlView()">HTML预览</el-button>
-          <el-button style="margin-left: 20px;" class="el-icon-circle-close" @click="visible = !visible">关闭</el-button>
+          <el-tooltip class="item" effect="dark" content="Html预览" placement="top">
+            <el-button type="success" style="margin-left: 20px;" icon="el-icon-view" circle @click="generateHtmlView()"></el-button>
+          </el-tooltip>
+          <el-tooltip class="item" effect="dark" content="下载" placement="top">
+            <el-button type="primary" style="margin-left: 20px;" icon="el-icon-download" circle @click="validateForm"></el-button>
+          </el-tooltip>
+          <select-table ref="selectTable" :data="data" @runParentShowEvent="runParentShowEvent"></select-table>
+          <el-button style="margin-left: 20px;" type="danger" circle class="el-icon-circle-close" @click="visible = !visible"></el-button>
         </el-row>
       </div>
-      <el-card slot="reference" shadow="hover" style="padding: 0;margin: 10px 10px;cursor: pointer" v-loading="loading"  element-loading-text="生成文件中...">
+      <el-card slot="reference" shadow="hover" style="padding: 0;margin: 10px 10px;cursor: pointer">
         <div style="width: 100%;height: 200px;display: flex;justify-content: center;align-items: center;">
           <img :src="iconImg" style="width: 100px;height: 100px;">
         </div>
@@ -62,8 +58,10 @@
 <script>
 import clickhouseIconPath from '../../assets/images/clickhouse-icon-click.png'
 import commonMixin from "./common-mixin";
+import selectTable from "../select-table.vue";
 export default {
   name: 'clickhouse',
+  components: {selectTable},
   mixins: [commonMixin],
   data(){
     return{

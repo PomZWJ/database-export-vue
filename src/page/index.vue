@@ -8,7 +8,7 @@
           </div>
           <div style="display: flex;flex-direction: column;align-items: flex-start;margin-left: 15px">
             <span style="font-size: 46px;font-weight: bolder">database-export</span>
-            <span style="margin-top: 10px">数据库表结构导出工具V4.0.0</span>
+            <span style="margin-top: 10px">数据库表结构导出工具V4.1.0</span>
           </div>
         </div>
         <div style="width: 50%;display: flex;flex-direction: row-reverse;justify-items: center;align-items: center">
